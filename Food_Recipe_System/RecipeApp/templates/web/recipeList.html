@@ -1,0 +1,84 @@
+{% extends 'web/base.html' %}
+{% load static %}
+{% include 'web/base.html' %}
+
+{% block bd %}
+<body class='alert-dark' id='bg' style="background-image: url('{% static "image/sh.jpg"%}')";>
+{% endblock bd %}
+
+
+
+{% block containt %}
+<h2 class='text-center bg-info mt-2 rounded-pill'>RECIPIES</h2>
+
+ <div class="row">
+  
+  <div class="col-sm-3">
+    <form class="form-inline my-2 my-lg-0">
+      <input class="form-control mr-sm-2 alert-light border border-dark" name="src" type="text" placeholder="search recipes" aria-label="Search" required>
+      <button class="btn btn-warning mt-2" type="submit">Search</button>
+    </form>
+  </div>
+ 
+  <div class="col-sm-7">
+    {% if list %}
+    <table class="table table-bordered alert-light shadow border border-dark">
+        <thead>
+          <tr>
+            <th>Title</th>
+            <th>Recipe</th>
+            {% if perms.RecipeApp.Delete_AllRecipes %}
+            <th>Action</th>
+            {% endif %}
+            <th>Owner</th>
+          </tr>
+        </thead>
+
+        {% for lt in list %}
+        <tbody>
+            
+          <tr>
+            <th scope="row">{{lt.recipe_title}}</th>
+            <td>{{lt.recipe}} <small class='float-end fst-italic mt-2'>{{lt.timedate}}</small></td>
+            
+              {% if perms.RecipeApp.Delete_AllRecipes %}<td>
+                <form action={% url 'deleterp' lt.id %} method='POST' class='d-inline'> {% csrf_token %}
+                    <input type="submit" value="Delete" class='btn btn-danger btn-sm mt-1'>
+                   </form></td>
+                   {% endif %}
+            <td><a href={% url 'showOwner' lt.id %} class='btn-outline-info  text-primary'>Visit Owner</a></td>
+          </tr>
+          
+        </tbody>
+        {% endfor %}
+
+      </table>
+      {% endif %}
+      
+
+ <nav aria-label="Page navigation">
+        <ul class="pagination">
+
+          {% if list.has_previous %}
+          <li class="page-item ">
+            <a class="page-link" href="?page={{list.previous_page_number}}" tabindex="-1" aria-disabled="true">Previous</a>
+          </li>
+          {% endif %}
+
+          <li class="page-item active" aria-current="page">
+            <a class="page-link" href="#">{{list.number}}</a>
+          </li>
+          
+          {% if list.has_next %}
+          <li class="page-item">
+            <a class="page-link" href="?page={{list.next_page_number}}">Next</a>
+          </li>
+          {% endif %}
+
+        </ul>
+      </nav> 
+
+</div>  
+
+  </div>
+{% endblock containt %}

@@ -1,0 +1,36 @@
+{% extends 'web/base.html' %}
+{% load static %}
+{% include 'web/base.html' %}
+
+{% block bd %}
+<body class='alert-dark' id='bg1' style="background-image: url('{% static "image/add.jpg"%}')";>
+{% endblock bd %}
+
+
+{% block containt %}
+<h2 class='alert-info mt-2 text-center rounded-pill'>ADD NEW RECIPE</h2>
+
+    <div class="col-sm-6 offset-3">
+        {% if messages %}
+    {% for ms in messages %}
+    <div {% if ms.tags %} class="alert alert-success" role="alert" {% endif %} >
+        <strong>{{ms}}</strong> 
+    </div>
+    {% endfor %}
+    {% endif %}
+    </div>
+
+    <div class="col-sm-6  ms-4 mt-3 shadow border border-1 rounded p-2">
+        
+        <form action="" method='POST' >
+            {% csrf_token %}
+            {% for rc in rcp %}
+            <label class=' text-light'>{{rc.label_tag}}</label> 
+            {{rc}} <small class='text-danger'>{{rc.errors|striptags}}</small>  
+            {% endfor %}
+            <input type="submit" value="Add" class='btn btn-success mt-2'>
+            <a href={% url 'home' %} class='btn btn-danger mt-2'>Cancel</a>
+            <a href={% url 'showRecipe' %} class='btn btn-outline-info offset-6 shadow mt-2'>View Recipes</a>
+        </form>
+    </div>
+{% endblock containt %}

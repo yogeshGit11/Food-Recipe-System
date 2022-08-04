@@ -1,0 +1,47 @@
+{% include 'web/nav.html' %}
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{% static 'css/bootstrap.css' %}">
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+    <title>FOOD_RECIPES</title>
+    <style>
+        #bg{
+            background-size: 1800px 900px;
+            background-repeat: no-repeat;
+            background-position: top;
+            background-attachment: fixed;
+        }
+        #bg1{
+            background-size:cover;
+            background-repeat: no-repeat;
+            background-position: top;
+            background-attachment: fixed;
+        }
+        .log{
+            font-family:Bookman Old Style;
+            font-size: 35px;
+        }
+        
+    </style>
+</head>
+{% block bd %}
+<body class='alert-danger' id="bg" style="background-image: url('{% static "image/bg1.jpg"%}')";>
+    {% endblock bd %}
+
+    
+    <div class="container">
+        {% block containt %}
+        
+        {% endblock containt %}
+    </div>
+    
+   
+    
+</body>
+</html>

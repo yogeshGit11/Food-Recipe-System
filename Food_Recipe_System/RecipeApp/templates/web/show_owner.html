@@ -1,0 +1,20 @@
+{% extends 'web/base.html' %}
+{% include 'web/base.html' %}
+{% load static %}
+
+{% block bd %}
+<body class='alert-dark' id='bg1' style="background-image: url('{% static "image/own.jpg"%}')";>
+{% endblock bd %}
+
+{% block containt %}
+
+    <div class="col-sm-4 offset-4 shadow  p-2 position-absolute mt-5 ">
+        <h2 class='alert-info mt-2 text-center'>RECIPE ADDED BY</h2>
+
+        <div class='mt-2 alert-success shadow text-center rounded-pill p-1'>
+            <h4 class='text-dark'>Name={{name.username}}</h4> <br>
+            <h4 class='text-dark'>Contact={{name.userphone}}</h4> <br>
+        </div>
+        <a href={% url 'showRecipe' %} class='btn btn-primary mt-2 ms-1'>Go to Recipes</a>
+    </div>
+{% endblock containt %}

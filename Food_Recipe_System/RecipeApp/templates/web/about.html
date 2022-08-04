@@ -1,0 +1,30 @@
+{% extends 'web/base.html' %}
+{% load static %}
+{% include 'web/base.html' %}
+
+{% block bd %}
+<body class='alert-dark' id='bg1' style="background-image: url('{% static "image/abt.jpg"%}')";>
+{% endblock bd %}
+
+{% block containt %}
+<div class="row">
+    <div class="col-md-8 mt-2 offset-2">
+        <h2 class='text-dark fsw-bolder text-center bg-info rounded-pill   mt-1'>ABOUT US</h2>
+
+        <div class="card mt-2 rounded border border-dark border-2">
+            
+            <div class="card-body shadow alert-success">
+              <h4 class="card-title">FOOD RECIPE SYSTEM</h4>
+              <p class="card-text">What could be more important to a food and beverage manufacturer than their recipes? While the issues of traceability, sustainability, profitability and process efficiency are all no doubt critical considerations, you know as an industry professional that it’s the products you make—and the formulas behind them—that play the largest role in shaping your brand identity and driving sales.
+
+                So, knowing the importance of your recipes, it’s well worth the time and effort to sit down and scrutinize your current approach to their management and administration. If your company is still relying on written records and the collective memory of your experienced team members, you may need to revisit your strategy and methods to ensure success in an increasingly digitized market.
+                
+                Without a doubt, a dedicated food recipe management system is the best means for perfecting, protecting and consistently applying your product formulas. In this post, we’ll look at a few of a top benefits of these solutions, as well as best practices to follow when using them in your daily operations.
+              </p>
+              <a href={% url 'home' %} class="btn btn-primary">Go Home</a>
+            </div>
+          </div>
+
+    </div>
+</div>
+{% endblock containt %}

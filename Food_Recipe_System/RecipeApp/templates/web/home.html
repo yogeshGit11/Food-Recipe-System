@@ -1,0 +1,24 @@
+{% include 'web/base.html' %}
+
+<div class="col-sm-4 offset-2 mt-2">
+    {% if messages %}
+    {% for ms in messages %}
+    <div {% if ms.tags %} class="alert alert-primary" role="alert" {% endif %} >
+        <strong>{{ms}}</strong> 
+    </div>
+    {% endfor %}
+    {% endif %}
+    </div>
+
+{% block containt %}
+    <div class="container">
+        
+        <div class="col-sm-6 offset-0">
+            <h2 class='text-primary fst-italic'>GENERAL GUIDELINES</h2>
+            <div class='mt-1 shadow alert-success p-2'>
+                    <p class='text-dark fst-italic'>After a bit of experience, you’ll see how readily you can adapt your present cooking and baking to solar cooking. Using the solar cooker can actually reduce the total amount of effort in meal preparation. Also cooking outside in the summer allows you to eliminate extra heat in the house. With solar cooking, you start your meals early in the day and then relax. At lunch or later in the afternoon or evening, when you’re tired after a day of work, the sun will have cooked your food. If this is your first attempt at solar cooking, start with something easy such as chicken, rice, zucchini, or quick bread such as banana bread. Baking potatoes is also easy, but don't wrap them in aluminum foil; just put them in a dark covered pot without adding any water. Place the hard-to-cook or larger quantity items in the back of the cooker where they will receive more direct sun. When using several pots, place the easy-to-cook food in the front of the cooker.</p>
+                </div>   
+            </div>
+            <a href={% url 'showRecipe' %} class='btn btn-danger offset-0 shadow mt-2'>View Recipes</a>
+    </div>
+    {% endblock containt %}

@@ -1,0 +1,32 @@
+{% extends 'web/base.html' %}
+{% include 'web/base.html' %}
+{% load static %}
+
+{% block bd %}
+<body class='alert-dark' id='bg1' style="background-image: url('{% static "image/sn.jpg"%}')";>
+{% endblock bd %}
+
+{% block containt %}
+
+    <div class="col-sm-4 offset-4 shadow alert-danger p-2 mt-5">
+        <h2 class='bg-info  text-dark rounded-pill mt-2 text-center p-1'>Sign Up</h2>
+        
+        <form action="" method='POST' >
+            {% csrf_token %}
+            {% for fm in form %}
+                <label class='fw-bolder text-dark'>{{fm.label_tag}}</label>
+                {{fm}} <small class='text-danger'>{{fm.errors|striptags}}</small>
+            {% endfor %}
+            <input type="submit" value="Sign Up" class='btn btn-success mt-2 offset-5'> 
+        </form>
+        
+        
+    </div><br> 
+    <small class='text-dark fst-italic offset-6 fw-bold'>New user sign Up:</small>
+    <a href={% url 'signUp' %} class='btn btn-sm btn-outline-dark'>Sign Up</a><br> <br>
+    {% if form.non_field_errors %}
+            {% for er in form.non_field_errors %}
+                <strong class='alert alert-dark offset-3 mt-5'>{{er}}</strong>
+            {% endfor %}
+        {% endif %}
+{% endblock containt %}

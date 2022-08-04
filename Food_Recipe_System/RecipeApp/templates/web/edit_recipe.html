@@ -1,0 +1,15 @@
+{% include 'web/base.html' %}
+
+{% block containt %}
+<h2 class='alert-info mt-2 text-center'>EDIT RECIPE</h2>
+    <div class="col-sm-6 offset-3 shadow alert-success p-2">
+        <form action="" method='POST'> {% csrf_token %}
+            {% for rc in rcp %}
+        <label class='fw-bolder text-dark mt-1'>{{rc.label_tag}}</label>
+        {{rc}} {{rc.errors|striptags}}
+        {% endfor %}
+        <input type="submit" value="Update" class='btn  btn-success mt-2'>
+        <a href={% url 'showRecipe' %} class='btn btn-danger mt-2'>Cancel</a>
+    </form>               
+    </div>
+{% endblock containt %}
