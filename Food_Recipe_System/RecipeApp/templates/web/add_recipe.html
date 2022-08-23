@@ -20,7 +20,7 @@
     {% endif %}
     </div>
 
-    <div class="col-sm-6  ms-4 mt-3 shadow border border-1 rounded p-2">
+    <div class="col-sm-6  ms-2 mt-3 shadow border border-warning border-3 rounded p-2">
         
         <form action="" method='POST' >
             {% csrf_token %}
@@ -29,8 +29,8 @@
             {{rc}} <small class='text-danger'>{{rc.errors|striptags}}</small>  
             {% endfor %}
             <input type="submit" value="Add" class='btn btn-success mt-2'>
-            <a href={% url 'home' %} class='btn btn-danger mt-2'>Cancel</a>
-            <a href={% url 'showRecipe' %} class='btn btn-outline-info offset-6 shadow mt-2'>View Recipes</a>
+            <a href={% url 'showRecipe' %} class='btn btn-info  shadow mt-2'>View Recipes</a>
         </form>
     </div>
+<a href={% url 'home' %} class='btn btn-danger btn-sm mt-2 ms-2'>Cancel</a>
 {% endblock containt %}

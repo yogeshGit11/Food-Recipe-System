@@ -10,7 +10,7 @@ class AddRecipe(forms.ModelForm):
     username=forms.CharField(widget=forms.TextInput(attrs={'class':'form-control'}),label='Your Name')
     userphone=forms.CharField(widget=forms.NumberInput(attrs={'class':'form-control'}),label='Mobile No')
     recipe_title=forms.CharField(widget=forms.TextInput(attrs={'class':'form-control'}))
-    recipe=forms.CharField(widget=forms.Textarea(attrs={'class':'form-control','rows':6}))
+    recipe=forms.CharField(widget=forms.Textarea(attrs={'class':'form-control','rows':7}))
 
     class Meta:
         model=AllRecipes

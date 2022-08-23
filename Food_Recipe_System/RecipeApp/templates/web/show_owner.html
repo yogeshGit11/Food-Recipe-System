@@ -8,12 +8,17 @@
 
 {% block containt %}
 
-    <div class="col-sm-4 offset-4 shadow  p-2 position-absolute mt-5 ">
+    <div class="col-sm-4 offset-3  shadow  p-2 position-absolute mt-5 ">
         <h2 class='alert-info mt-2 text-center'>RECIPE ADDED BY</h2>
 
-        <div class='mt-2 alert-success shadow text-center rounded-pill p-1'>
-            <h4 class='text-dark'>Name={{name.username}}</h4> <br>
-            <h4 class='text-dark'>Contact={{name.userphone}}</h4> <br>
+        <div class='mt-2 alert-success shadow  border border-dark border-3 p-1'>
+          
+            <ul>
+                <li class='text-dark fw-bold  h4'><u>NAME:-{{name.username}}</u></li>
+                <li class='text-dark fw-bold  h4'><u>CONTACT:-{{name.userphone}}</u></li>
+            </ul>
+            {% comment %} <u><h4 class='text-dark'>NAME:{{name.username}}</h4></u> <br>
+            <u><h4 class='text-dark'></h4></u> <br> {% endcomment %}
         </div>
         <a href={% url 'showRecipe' %} class='btn btn-primary mt-2 ms-1'>Go to Recipes</a>
     </div>
